@@ -6,7 +6,7 @@ export const IconButton = ({ onPress, icon, accessibilityLabel, accessibilityHin
     <Pressable
       style={({ pressed }) => [
         styles.button,
-        { backgroundColor: pressed ? '#ccc' : '#ddd' }
+        { backgroundColor: pressed ? '#ccc' : '#fff' }
       ]}
       onPress={onPress}
       accessibilityLabel={accessibilityLabel}
