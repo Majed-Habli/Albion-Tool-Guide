@@ -1,13 +1,15 @@
-import { Image, StyleSheet, Platform ,Dimensions, View, Text } from 'react-native';
-import Carousel from 'react-native-reanimated-carousel';
-
-import ParallaxScrollView from '@/components/ParallaxScrollView';
+import { useState } from "react";
+import { imageData } from '@/data/CityData';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import Carousel from 'react-native-reanimated-carousel';
+import ParallaxScrollView from '@/components/ParallaxScrollView';
+import { Image, StyleSheet, Dimensions, View, Text } from 'react-native';
 
 export default function HomeScreen() {
   const width = Dimensions.get('window').width;
-  
+  const [currentIndex, setCurrentIndex] = useState(0);
+
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
@@ -33,23 +35,25 @@ export default function HomeScreen() {
               parallaxScrollingOffset: 80,
               parallaxAdjacentItemScale: 0.8,
           }}
-          data={[...new Array(6).keys()]}
+          data={imageData}
           scrollAnimationDuration={1000}
-          onSnapToItem={(index) => console.log('current index:', index)}
-          renderItem={({ index }) => (
+          onSnapToItem={(index) => {setCurrentIndex(index), console.log('current index:', index)}}
+          
+          renderItem={({ item, index }) => (
               <View
-                  style={{
-                      flex: 1,
-                      marginLeft: -40,
-                      width: 340,
-                      borderRadius: 7,
-                      justifyContent: 'center',
-                  }}
+                style={[
+                  styles.carouselContainer,
+                  index === currentIndex ? styles.activeItem : null
+                ]}
+                key={currentIndex}
               >
-                  <Image
-                    source={require('@/assets/images/BridgewatchBanner.jpeg')}
-                    style={styles.carousel}
-                  />
+                <Image
+                  source={item.source}
+                  key={index}
+                  style={styles.carousel}
+                  blurRadius={index === currentIndex ? 0 : 6}
+                />
+                  <Text style={[styles.title, {position: 'absolute', bottom: 10, left:10}]}>{item.title}</Text>
               </View>
           )}
       />
@@ -80,5 +84,25 @@ const styles = StyleSheet.create({
     width: '100%',
     objectFit: 'cover',
     borderRadius: 7
+  },
+  title: {
+    fontSize: 32,
+    color: 'white',
+    fontWeight: 'bold',
+    lineHeight: 32,
+  },
+  carouselContainer: {
+    flex: 1,
+    marginLeft: -40,
+    width: 340,
+    borderRadius: 7,
+    justifyContent: 'center',
+  },
+  activeItem: {
+    shadowColor: '#000',
+    shadowOffset: {width: 0, height: 4},
+    elevation: 8,
+    shadowOpacity: 6,
+    shadowRadius: 3,
   },
 });
