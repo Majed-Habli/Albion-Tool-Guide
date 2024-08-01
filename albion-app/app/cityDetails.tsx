@@ -24,7 +24,9 @@ export default function CityDetails() {
           source={city.source}
           style={styles.reactLogo}
         />
-      }>
+      }
+      cityIndex = {index}
+      >
     </ParallaxScrollView>
   );
 }
