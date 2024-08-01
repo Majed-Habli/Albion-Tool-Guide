@@ -46,18 +46,22 @@ export default function DetailBanner({ cityIndex }: DetailBannerProps) {
 
   return (
     <View style={styles.container}>
-      <Text style={{ color: 'white' }}>Location: {cityData.title || 'No Title Available'}</Text>
-      {/* <Image source={imageData[cityIndex].source} style={styles.image} /> */}
-      <View>
-        {/* <Text>{cityData.description || 'No Description Available'}</Text> */}
-        <View>
-          {cityData.resources.length > 0 ? (
-            cityData.resources.map((resource, idx) => (
-              <Text key={idx} style={{ color: 'white' }}>{resource}</Text>
-            ))
-          ) : (
-            <Text style={{ color: 'white' }}>No Resources Available</Text>
-          )}
+      <Text style={{ color: 'white', fontSize: 16 }}>Location</Text>
+      <View style={{ flexDirection: 'row', gap: 10}}>
+        <View style={{width: 30, height: 50}}>
+            <Image source={cityData.crest} style={styles.image} />
+        </View>
+        <View style={{  alignContent: 'center' }}>    
+            <Text style={{ color: 'white', fontSize: 20 }}>{cityData.title || 'No Title Available'}</Text>
+            <View style={{ flexDirection: 'row', paddingBottom: 2}}>
+            {cityData.resources.length > 0 ? (
+                cityData.resources.map((resource, idx) => (
+                <Text key={idx} style={{ color: 'white', marginRight: 10 }}>{resource}</Text>
+                ))
+            ) : (
+                <Text style={{ color: 'white' }}>No Resources Available</Text>
+            )}
+            </View>
         </View>
       </View>
     </View>
@@ -66,11 +70,16 @@ export default function DetailBanner({ cityIndex }: DetailBannerProps) {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    padding: 16,
+    backgroundColor: 'rgba(0,0,0,0.5)',
+    color: 'white',
+    width: 200,
+    padding: 10,
+    borderRadius: 9,
+    gap: 5
   },
   image: {
     width: '100%',
-    height: 200,
+    objectFit: 'contain',
+    height: '100%',
   },
 });
