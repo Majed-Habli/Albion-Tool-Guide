@@ -18,12 +18,14 @@ const HEADER_HEIGHT = 250;
 type Props = PropsWithChildren<{
   headerImage: ReactElement;
   cityIndex: number | null;
+  tint: boolean,
   headerBackgroundColor: { dark: string; light: string };
 }>;
 
 export default function ParallaxScrollView({
   children,
   headerImage,
+  tint,
   cityIndex,
   headerBackgroundColor,
 }: Props) {
@@ -86,10 +88,16 @@ export default function ParallaxScrollView({
                 </View>
               </View>
             ) : (
-              <DetailBanner cityIndex={cityIndex} />
+              <View style={{ flex: 1, justifyContent: 'flex-end', paddingVertical: 32}}>
+                <DetailBanner cityIndex={cityIndex} />
+              </View>
             )}
           </View>
           {headerImage}
+          {tint && (
+            <View style={styles.tint} />
+          )}
+
         </Animated.View>
         <ThemedView style={styles.content}>{children}</ThemedView>
       </Animated.ScrollView>
@@ -110,5 +118,13 @@ const styles = StyleSheet.create({
     padding: 32,
     gap: 16,
     overflow: 'hidden',
+  },
+  tint: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(247, 135, 54, 0.1)',
   },
 });
