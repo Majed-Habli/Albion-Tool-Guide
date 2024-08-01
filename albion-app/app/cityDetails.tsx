@@ -1,6 +1,7 @@
 import { useLocalSearchParams } from 'expo-router';
 import { View, Text, Image, StyleSheet } from 'react-native';
 import { imageData } from '@/data/CityData';
+import ParallaxScrollView from '@/components/ParallaxScrollView';
 
 export default function CityDetails() {
   const { index } = useLocalSearchParams<{ index: number }>();
@@ -16,11 +17,15 @@ export default function CityDetails() {
   const city = imageData[index];
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>{city.title}</Text>
-      <Text style={styles.description}>{city.description}</Text>
-      <Image source={city.source} style={styles.image} />
-    </View>
+    <ParallaxScrollView
+      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
+      headerImage={
+        <Image
+          source={city.source}
+          style={styles.reactLogo}
+        />
+      }>
+    </ParallaxScrollView>
   );
 }
 
@@ -29,20 +34,12 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 20,
   },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: 'white'
-
-  },
-  description: {
-    fontSize: 16,
-    color: 'white'
-  },
-  image: {
+  reactLogo: {
+    height: '100%',
     width: '100%',
-    height: 200,
-    resizeMode: 'cover',
-    marginTop: 20,
+    bottom: 0,
+    left: 0,
+    position: 'absolute',
+    borderRadius: 18
   },
 });
