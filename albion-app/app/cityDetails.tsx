@@ -26,6 +26,7 @@ export default function CityDetails() {
         />
       }
       cityIndex = {index}
+      tint = {true}
       >
     </ParallaxScrollView>
   );
