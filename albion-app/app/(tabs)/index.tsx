@@ -4,11 +4,17 @@ import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import Carousel from 'react-native-reanimated-carousel';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { Image, StyleSheet, Dimensions, View, Text } from 'react-native';
+import { Image, StyleSheet, Dimensions, View, Text, Pressable } from 'react-native';
+import { useRouter } from 'expo-router';
 
 export default function HomeScreen() {
+  const router = useRouter();
   const width = Dimensions.get('window').width;
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  const handlePress = (index: number) => {
+    router.push(`/cityDetails?index=${index}`);
+  };
 
   return (
     <ParallaxScrollView
@@ -40,12 +46,13 @@ export default function HomeScreen() {
           onSnapToItem={(index) => {setCurrentIndex(index), console.log('current index:', index)}}
           
           renderItem={({ item, index }) => (
-              <View
+              <Pressable
                 style={[
                   styles.carouselContainer,
                   index === currentIndex ? styles.activeItem : null
                 ]}
                 key={currentIndex}
+                onPress={() => { handlePress(currentIndex) }}
               >
                 <Image
                   source={item.source}
@@ -54,7 +61,7 @@ export default function HomeScreen() {
                   blurRadius={index === currentIndex ? 0 : 6}
                 />
                   <Text style={[styles.title, {position: 'absolute', bottom: 10, left:10}]}>{item.title}</Text>
-              </View>
+              </Pressable>
           )}
       />
     </ParallaxScrollView>
