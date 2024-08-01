@@ -24,7 +24,9 @@ export default function HomeScreen() {
           source={require('@/assets/images/journalUpdateBanner.jpeg')}
           style={styles.reactLogo}
         />
-      }>
+      }
+      cityIndex = {null}
+      >
       <ThemedView style={styles.titleContainer}>
         <ThemedText type="subtitle">#CityBuffs</ThemedText>
         <ThemedText type="link">view all</ThemedText>
