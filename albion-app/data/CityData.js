@@ -16,7 +16,16 @@ export const imageData = [
     refining_bonus: {
       resource: [4],
       percentage: '+ 40%'
-    }
+    },
+    crafting_bonus: [
+      { name: 'Raw Goat', percentage: '10%' },
+      { name: 'Crossbow', percentage: '15%' },
+      { name: 'Dragon Teasel', percentage: '15%' },
+      { name: 'Dagger', percentage: '15%' },
+      { name: 'Cursed Staff', percentage: '15%' },
+      { name: 'Plate Armour', percentage: '15%' },
+      { name: 'cloth Shoes', percentage: '15%' },
+    ],
   },
   {
     source: require("@/assets/images/LymhurstBanner.jpeg"),
@@ -33,7 +42,15 @@ export const imageData = [
     refining_bonus: {
       resource: [1],
       percentage: '+ 40%'
-    }
+    },
+    crafting_bonus: [
+      { name: 'Raw Goose', percentage: '10%' },
+      { name: 'Sword', percentage: '15%' },
+      { name: 'Bow', percentage: '15%' },
+      { name: 'Arcane Staff', percentage: '15%' },
+      { name: 'Leather Helmet', percentage: '15%' },
+      { name: 'Leather Shoes', percentage: '15%' },
+    ],
   },
   {
     source: require("@/assets/images/ThetfortBanner.jpg"),
@@ -49,7 +66,16 @@ export const imageData = [
     refining_bonus: {
       resource: [2],
       percentage: '+ 40%'
-    }
+    },
+    crafting_bonus: [
+      { name: 'Raw Pork', percentage: '10%' },
+      { name: 'Mace', percentage: '15%' },
+      { name: 'Nature Staff', percentage: '15%' },
+      { name: 'Fire Staff', percentage: '15%' },
+      { name: 'Leather Armour', percentage: '15%' },
+      { name: 'Cloth Helmet', percentage: '15%' },
+      { name: 'Leather Armour', percentage: '15%' },
+    ],
   },
   {
     source: require("@/assets/images/MortlockBanner.jpeg"),
@@ -66,7 +92,15 @@ export const imageData = [
     refining_bonus: {
       resource: [0],
       percentage: '+ 40%'
-    }
+    },
+    crafting_bonus: [
+      { name: 'Raw Beef', percentage: '10%' },
+      { name: 'Axe', percentage: '15%' },
+      { name: 'QuarterStaff', percentage: '15%' },
+      { name: 'Frost Staff', percentage: '15%' },
+      { name: 'Plate Shoes', percentage: '15%' },
+      { name: 'Off-Hand', percentage: '15%' },
+    ],
   },
   {
     source: require("@/assets/images/CarleonBanner.jpg"),
@@ -82,7 +116,14 @@ export const imageData = [
     refining_bonus: {
       resource: [5],
       percentage: '+ 18%'
-    }
+    },
+    crafting_bonus: [
+      { name: 'Gathering Gear', percentage: '15%' },
+      { name: 'Tool', percentage: '15%' },
+      { name: 'Food', percentage: '15%' },
+      { name: 'War Gloves', percentage: '15%' },
+      { name: 'ShapShifter Staff', percentage: '15%' },
+    ],
   },
   {
     source: require("@/assets/images/FortsterlingBanner.jpg"),
@@ -99,7 +140,16 @@ export const imageData = [
     refining_bonus: {
       resource: [3],
       percentage: '+ 40%'
-    }
+    },
+    crafting_bonus: [
+      { name: 'Raw Chicken', percentage: '10%' },
+      { name: 'Raw Mutton', percentage: '10%' },
+      { name: 'Hammer', percentage: '15%' },
+      { name: 'Spear', percentage: '15%' },
+      { name: 'Holy staff', percentage: '15%' },
+      { name: 'Plate Armour', percentage: '15%' },
+      { name: 'cloth Shoes', percentage: '15%' },
+    ],
   },
   {
     source: require("@/assets/images/BercilienBanner.jpeg"),
