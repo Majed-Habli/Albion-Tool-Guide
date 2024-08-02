@@ -69,10 +69,11 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: 'rgba(0,0,0,0.5)',
     color: 'white',
-    width: 200,
+    maxWidth: 230,
     padding: 10,
     borderRadius: 9,
-    gap: 5
+    alignSelf: 'flex-start',
+    gap: 6
   },
   image: {
     width: '100%',
