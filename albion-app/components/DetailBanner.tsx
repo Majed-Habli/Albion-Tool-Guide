@@ -7,7 +7,6 @@ type DetailBannerProps = {
 };
 
 export default function DetailBanner({ cityIndex }: DetailBannerProps) {
-  console.log('Received cityIndex:', cityIndex);
 
   function getResourceNames(resourceIndices: number[]) {
     return resourceIndices.map(index => resources[index] || 'Unknown Resource');
@@ -21,7 +20,6 @@ export default function DetailBanner({ cityIndex }: DetailBannerProps) {
   }
 
   const enhancedImageData = enhanceImageData(imageData);
-  console.log('Enhanced Image Data:', enhancedImageData);
 
   // Validate cityIndex and extract cityData safely
   if (cityIndex === null || cityIndex >= enhancedImageData.length || cityIndex < 0) {
@@ -33,7 +31,6 @@ export default function DetailBanner({ cityIndex }: DetailBannerProps) {
   }
 
   const cityData = enhancedImageData[cityIndex];
-  console.log('City Data:', cityData);
 
   // Ensure cityData is defined and has expected properties
   if (!cityData) {
@@ -72,10 +69,11 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: 'rgba(0,0,0,0.5)',
     color: 'white',
-    width: 200,
+    maxWidth: 230,
     padding: 10,
     borderRadius: 9,
-    gap: 5
+    alignSelf: 'flex-start',
+    gap: 6
   },
   image: {
     width: '100%',
