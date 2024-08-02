@@ -45,7 +45,7 @@ export default function HomeScreen() {
           }}
           data={imageData}
           scrollAnimationDuration={1000}
-          onSnapToItem={(index) => {setCurrentIndex(index), console.log('current index:', index)}}
+          onSnapToItem={(index) => {setCurrentIndex(index)}}
           
           renderItem={({ item, index }) => (
               <Pressable
