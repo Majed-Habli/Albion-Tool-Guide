@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { ThemedText } from '@/components/ThemedText';
 
 type ListComponentProps = {
   title: String;
@@ -10,8 +11,8 @@ export default function DetailBanner({ title, percentage }: ListComponentProps) 
 
   return (
     <View style={styles.listContainer}>
-      <Text>{title}</Text>
-      <Text>{percentage}</Text>
+      <ThemedText type="default">{title}</ThemedText>
+      <ThemedText type="default">{percentage}</ThemedText>
     </View>
   );
 }
@@ -21,6 +22,7 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 9,
     justifyContent: 'space-between',
+    flexDirection: 'row',
     borderWidth: 1,
     borderColor: '#D0D0D0'
   },
